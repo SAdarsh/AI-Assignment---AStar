@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-@author:
+
+Artificial and Computational Intelligence Assignment 8
+
+
+Problem solving using A* Search Algorithm
+
+Assignment Group 108
+
 """
 
 #importing the libraries
@@ -97,7 +104,7 @@ def astar_search(graph, start_node, goal_node):
                 #setting parent to the next parent
                 parent = get_parent(parent)
             #returning the final path traverserd
-            return list(reversed(path)) + [goal_node]
+            return list(reversed(path)) + [goal_node], current_node[0]
         #if current_node is not goal node we will explore it and get it's neighbors
         #storing the list of neighbors in a local variable
         neighbors = list(G.neighbors(current_node[1]))
@@ -136,9 +143,9 @@ def astar_search(graph, start_node, goal_node):
 #main funtion
 def main():
     #calling the astar_search function with 'S' as start node and 'G' as goal node
-    path = astar_search(G, 'S', 'G')
+    path, cost = astar_search(G, 'S', 'G')
     print('\n')
-    print('The path to goal node that Arun can take using A* Algorithm is: ', path, '\n')
+    print('The path to goal node that Arun can take using A* Algorithm is: {} and cost is: {}'.format(path, cost))
 
 #telling python to run the main method
 if __name__ == "__main__": main()
